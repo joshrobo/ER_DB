@@ -38,27 +38,31 @@
             // name
             // 
             this.name.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name.Location = new System.Drawing.Point(9, 36);
+            this.name.Location = new System.Drawing.Point(17, 66);
+            this.name.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.name.MaxLength = 25;
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(100, 29);
+            this.name.Size = new System.Drawing.Size(180, 45);
             this.name.TabIndex = 2;
             // 
             // First
             // 
             this.First.AutoSize = true;
             this.First.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.First.Location = new System.Drawing.Point(8, 9);
+            this.First.Location = new System.Drawing.Point(15, 17);
+            this.First.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.First.Name = "First";
-            this.First.Size = new System.Drawing.Size(52, 22);
+            this.First.Size = new System.Drawing.Size(91, 37);
             this.First.TabIndex = 3;
             this.First.Text = "Name";
             // 
             // submit
             // 
             this.submit.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit.Location = new System.Drawing.Point(61, 71);
+            this.submit.Location = new System.Drawing.Point(112, 131);
+            this.submit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(100, 29);
+            this.submit.Size = new System.Drawing.Size(183, 54);
             this.submit.TabIndex = 32;
             this.submit.Text = "Submit";
             this.submit.UseVisualStyleBackColor = true;
@@ -68,30 +72,35 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(111, 11);
+            this.label1.Location = new System.Drawing.Point(204, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 22);
+            this.label1.Size = new System.Drawing.Size(204, 37);
             this.label1.TabIndex = 3;
             this.label1.Text = "Expiration date";
             // 
             // expdate
             // 
-            this.expdate.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.expdate.Location = new System.Drawing.Point(115, 36);
+            this.expdate.Font = new System.Drawing.Font("Palatino Linotype", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expdate.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.expdate.Location = new System.Drawing.Point(211, 66);
+            this.expdate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.expdate.Name = "expdate";
-            this.expdate.Size = new System.Drawing.Size(100, 29);
+            this.expdate.Size = new System.Drawing.Size(180, 39);
             this.expdate.TabIndex = 2;
+            this.expdate.Text = "YYYY/MM/DD";
             // 
             // AddMeds
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(231, 117);
+            this.ClientSize = new System.Drawing.Size(424, 216);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.First);
             this.Controls.Add(this.expdate);
             this.Controls.Add(this.name);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "AddMeds";
             this.Text = "AddMeds";
             this.ResumeLayout(false);

@@ -43,9 +43,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 66);
+            this.label2.Location = new System.Drawing.Point(22, 122);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 22);
+            this.label2.Size = new System.Drawing.Size(148, 37);
             this.label2.TabIndex = 31;
             this.label2.Text = "Symptoms";
             // 
@@ -53,74 +54,82 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(119, 9);
+            this.label1.Location = new System.Drawing.Point(218, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 22);
+            this.label1.Size = new System.Drawing.Size(143, 37);
             this.label1.TabIndex = 30;
             this.label1.Text = "Record ID";
             // 
             // symptoms
             // 
             this.symptoms.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.symptoms.Location = new System.Drawing.Point(16, 91);
+            this.symptoms.Location = new System.Drawing.Point(29, 168);
+            this.symptoms.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.symptoms.Multiline = true;
             this.symptoms.Name = "symptoms";
             this.symptoms.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.symptoms.Size = new System.Drawing.Size(313, 91);
+            this.symptoms.Size = new System.Drawing.Size(571, 165);
             this.symptoms.TabIndex = 29;
             // 
             // recordid
             // 
             this.recordid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recordid.Location = new System.Drawing.Point(123, 34);
+            this.recordid.Location = new System.Drawing.Point(226, 63);
+            this.recordid.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.recordid.Name = "recordid";
-            this.recordid.Size = new System.Drawing.Size(100, 29);
+            this.recordid.Size = new System.Drawing.Size(180, 45);
             this.recordid.TabIndex = 28;
             // 
             // First
             // 
             this.First.AutoSize = true;
             this.First.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.First.Location = new System.Drawing.Point(12, 9);
+            this.First.Location = new System.Drawing.Point(22, 17);
+            this.First.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.First.Name = "First";
-            this.First.Size = new System.Drawing.Size(78, 22);
+            this.First.Size = new System.Drawing.Size(140, 37);
             this.First.TabIndex = 27;
             this.First.Text = "Patient ID";
             // 
             // patientid
             // 
             this.patientid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientid.Location = new System.Drawing.Point(16, 34);
+            this.patientid.Location = new System.Drawing.Point(29, 63);
+            this.patientid.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.patientid.Name = "patientid";
-            this.patientid.Size = new System.Drawing.Size(100, 29);
+            this.patientid.Size = new System.Drawing.Size(180, 45);
             this.patientid.TabIndex = 26;
             // 
             // diagnosis
             // 
             this.diagnosis.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.diagnosis.Location = new System.Drawing.Point(16, 210);
+            this.diagnosis.Location = new System.Drawing.Point(29, 388);
+            this.diagnosis.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.diagnosis.Multiline = true;
             this.diagnosis.Name = "diagnosis";
             this.diagnosis.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.diagnosis.Size = new System.Drawing.Size(313, 91);
+            this.diagnosis.Size = new System.Drawing.Size(571, 165);
             this.diagnosis.TabIndex = 29;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 185);
+            this.label3.Location = new System.Drawing.Point(22, 342);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 22);
+            this.label3.Size = new System.Drawing.Size(139, 37);
             this.label3.TabIndex = 31;
             this.label3.Text = "Diagnosis";
             // 
             // submit
             // 
             this.submit.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit.Location = new System.Drawing.Point(123, 307);
+            this.submit.Location = new System.Drawing.Point(226, 567);
+            this.submit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(100, 29);
+            this.submit.Size = new System.Drawing.Size(183, 54);
             this.submit.TabIndex = 41;
             this.submit.Text = "Submit";
             this.submit.UseVisualStyleBackColor = true;
@@ -128,9 +137,9 @@
             // 
             // Diagnose
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 349);
+            this.ClientSize = new System.Drawing.Size(634, 644);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -140,6 +149,7 @@
             this.Controls.Add(this.recordid);
             this.Controls.Add(this.First);
             this.Controls.Add(this.patientid);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Diagnose";
             this.Text = "Diagnose";
             this.ResumeLayout(false);

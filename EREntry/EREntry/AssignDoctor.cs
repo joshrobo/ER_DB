@@ -20,6 +20,7 @@ namespace EREntry
         private void submit_Click(object sender, EventArgs e)
         {
             //run query
+            //string employee_ID = 
             Close();
         }
     }

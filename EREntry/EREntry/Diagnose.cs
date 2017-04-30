@@ -15,6 +15,7 @@ namespace EREntry
         public Diagnose()
         {
             InitializeComponent();
+            //get patients most recent record
         }
 
         private void submit_Click(object sender, EventArgs e)

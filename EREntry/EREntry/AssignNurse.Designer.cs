@@ -37,26 +37,30 @@
             // 
             this.First.AutoSize = true;
             this.First.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.First.Location = new System.Drawing.Point(12, 9);
+            this.First.Location = new System.Drawing.Point(22, 17);
+            this.First.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.First.Name = "First";
-            this.First.Size = new System.Drawing.Size(99, 22);
+            this.First.Size = new System.Drawing.Size(178, 37);
             this.First.TabIndex = 4;
             this.First.Text = "To patient ID";
             // 
             // patientid
             // 
             this.patientid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientid.Location = new System.Drawing.Point(16, 34);
+            this.patientid.Location = new System.Drawing.Point(29, 63);
+            this.patientid.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.patientid.MaxLength = 8;
             this.patientid.Name = "patientid";
-            this.patientid.Size = new System.Drawing.Size(100, 29);
+            this.patientid.Size = new System.Drawing.Size(180, 45);
             this.patientid.TabIndex = 5;
             // 
             // submit
             // 
             this.submit.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit.Location = new System.Drawing.Point(12, 69);
+            this.submit.Location = new System.Drawing.Point(22, 127);
+            this.submit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(104, 29);
+            this.submit.Size = new System.Drawing.Size(191, 54);
             this.submit.TabIndex = 33;
             this.submit.Text = "Submit";
             this.submit.UseVisualStyleBackColor = true;
@@ -64,12 +68,13 @@
             // 
             // AssignNurse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(135, 110);
+            this.ClientSize = new System.Drawing.Size(381, 203);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.patientid);
             this.Controls.Add(this.First);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "AssignNurse";
             this.Text = "AssignNurse";
             this.ResumeLayout(false);

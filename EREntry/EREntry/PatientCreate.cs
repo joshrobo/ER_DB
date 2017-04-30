@@ -21,10 +21,7 @@ namespace EREntry
 
         private void submit_Click(object sender, EventArgs e)
         {
-            //check id patient id is available
-
-
-            //run query
+            //create new connection
             DatabaseConnect Dujeet_DB = new DatabaseConnect();
             //sets gender input
             string gender = "O";
@@ -45,6 +42,7 @@ namespace EREntry
                 {
                     bool ID_available = false; //set patients with id to one
                     string patientID = "";
+                    //check id patient id is available
                     while (!ID_available) //will break if not patients in db have id
                     {
                         patientID = Dujeet_DB.generateID(8); //generate a new 8 length hexadecimal id
@@ -69,12 +67,12 @@ namespace EREntry
                     MySqlCommand cmd2 = new MySqlCommand(query, Dujeet_DB.connection);
                     //Execute the command
                     cmd2.ExecuteNonQuery();
-                    label16.Text = "Created new patient, ID = " + patientID;
+                    label16.Text = "Created new patient\n ID: " + patientID;
                     //close Connection
                     Dujeet_DB.CloseConnection();
                 }
 
-                //Close(); //manual closes form
+            
             }
         }
         // fucntion to validate input
@@ -132,6 +130,11 @@ namespace EREntry
             //policy_num
             //allergies
             return true;
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            Close(); //closes window
         }
     }
 }

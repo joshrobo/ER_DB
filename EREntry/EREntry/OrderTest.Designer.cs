@@ -126,7 +126,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox testname;
-        private System.Windows.Forms.TextBox doctorid;
+        public System.Windows.Forms.TextBox doctorid;
         private System.Windows.Forms.Label First;
         private System.Windows.Forms.TextBox patientid;
         private System.Windows.Forms.Button submit;

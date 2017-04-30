@@ -60,6 +60,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.submit = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
+            this.back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // firstBox
@@ -436,10 +437,10 @@
             // submit
             // 
             this.submit.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit.Location = new System.Drawing.Point(576, 978);
+            this.submit.Location = new System.Drawing.Point(576, 914);
             this.submit.Margin = new System.Windows.Forms.Padding(6);
             this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(169, 54);
+            this.submit.Size = new System.Drawing.Size(169, 63);
             this.submit.TabIndex = 30;
             this.submit.Text = "Submit";
             this.submit.UseVisualStyleBackColor = true;
@@ -456,11 +457,25 @@
             this.label16.Size = new System.Drawing.Size(0, 47);
             this.label16.TabIndex = 31;
             // 
+            // back
+            // 
+            this.back.AutoSize = true;
+            this.back.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.back.Location = new System.Drawing.Point(576, 989);
+            this.back.Margin = new System.Windows.Forms.Padding(6);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(169, 60);
+            this.back.TabIndex = 32;
+            this.back.Text = "Back";
+            this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
             // PatientCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1338, 1071);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.label15);
@@ -535,6 +550,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button submit;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button back;
     }
 }
 

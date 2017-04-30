@@ -40,34 +40,41 @@
             // bloodpressure
             // 
             this.bloodpressure.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bloodpressure.Location = new System.Drawing.Point(228, 34);
+            this.bloodpressure.Location = new System.Drawing.Point(418, 63);
+            this.bloodpressure.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.bloodpressure.MaxLength = 8;
             this.bloodpressure.Name = "bloodpressure";
-            this.bloodpressure.Size = new System.Drawing.Size(100, 29);
+            this.bloodpressure.Size = new System.Drawing.Size(180, 45);
             this.bloodpressure.TabIndex = 49;
             // 
             // patientid
             // 
             this.patientid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientid.Location = new System.Drawing.Point(16, 34);
+            this.patientid.Location = new System.Drawing.Point(29, 63);
+            this.patientid.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.patientid.MaxLength = 8;
             this.patientid.Name = "patientid";
-            this.patientid.Size = new System.Drawing.Size(100, 29);
+            this.patientid.Size = new System.Drawing.Size(180, 45);
             this.patientid.TabIndex = 50;
             // 
             // heartrate
             // 
             this.heartrate.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.heartrate.Location = new System.Drawing.Point(122, 34);
+            this.heartrate.Location = new System.Drawing.Point(224, 63);
+            this.heartrate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.heartrate.MaxLength = 3;
             this.heartrate.Name = "heartrate";
-            this.heartrate.Size = new System.Drawing.Size(100, 29);
+            this.heartrate.Size = new System.Drawing.Size(180, 45);
             this.heartrate.TabIndex = 51;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(224, 9);
+            this.label2.Location = new System.Drawing.Point(411, 17);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 22);
+            this.label2.Size = new System.Drawing.Size(200, 37);
             this.label2.TabIndex = 45;
             this.label2.Text = "Blood pressure";
             // 
@@ -75,9 +82,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(22, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 22);
+            this.label1.Size = new System.Drawing.Size(140, 37);
             this.label1.TabIndex = 46;
             this.label1.Text = "Patient ID";
             // 
@@ -85,18 +93,20 @@
             // 
             this.First.AutoSize = true;
             this.First.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.First.Location = new System.Drawing.Point(118, 9);
+            this.First.Location = new System.Drawing.Point(216, 17);
+            this.First.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.First.Name = "First";
-            this.First.Size = new System.Drawing.Size(79, 22);
+            this.First.Size = new System.Drawing.Size(142, 37);
             this.First.TabIndex = 48;
             this.First.Text = "Heart rate";
             // 
             // submit
             // 
             this.submit.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit.Location = new System.Drawing.Point(122, 69);
+            this.submit.Location = new System.Drawing.Point(224, 127);
+            this.submit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(100, 29);
+            this.submit.Size = new System.Drawing.Size(183, 54);
             this.submit.TabIndex = 52;
             this.submit.Text = "Submit";
             this.submit.UseVisualStyleBackColor = true;
@@ -104,9 +114,9 @@
             // 
             // CheckVitals
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 109);
+            this.ClientSize = new System.Drawing.Size(634, 201);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.bloodpressure);
             this.Controls.Add(this.patientid);
@@ -114,6 +124,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.First);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "CheckVitals";
             this.Text = "CheckVitals";
             this.ResumeLayout(false);

@@ -30,14 +30,17 @@
         {
             this.performtest = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
+            this.IDlabel = new System.Windows.Forms.Label();
+            this.idBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // performtest
             // 
             this.performtest.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.performtest.Location = new System.Drawing.Point(12, 12);
+            this.performtest.Location = new System.Drawing.Point(25, 86);
+            this.performtest.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.performtest.Name = "performtest";
-            this.performtest.Size = new System.Drawing.Size(106, 54);
+            this.performtest.Size = new System.Drawing.Size(194, 100);
             this.performtest.TabIndex = 9;
             this.performtest.Text = "Perform test";
             this.performtest.UseVisualStyleBackColor = true;
@@ -46,24 +49,50 @@
             // back
             // 
             this.back.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.back.Location = new System.Drawing.Point(124, 12);
+            this.back.Location = new System.Drawing.Point(230, 86);
+            this.back.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(106, 54);
+            this.back.Size = new System.Drawing.Size(194, 100);
             this.back.TabIndex = 9;
             this.back.Text = "Back";
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
             // 
+            // IDlabel
+            // 
+            this.IDlabel.AutoSize = true;
+            this.IDlabel.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IDlabel.Location = new System.Drawing.Point(113, 24);
+            this.IDlabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.IDlabel.Name = "IDlabel";
+            this.IDlabel.Size = new System.Drawing.Size(56, 37);
+            this.IDlabel.TabIndex = 20;
+            this.IDlabel.Text = "ID:";
+            // 
+            // idBox
+            // 
+            this.idBox.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idBox.Location = new System.Drawing.Point(230, 21);
+            this.idBox.Margin = new System.Windows.Forms.Padding(6);
+            this.idBox.MaxLength = 4;
+            this.idBox.Name = "idBox";
+            this.idBox.Size = new System.Drawing.Size(194, 45);
+            this.idBox.TabIndex = 19;
+            // 
             // LabTech
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(243, 79);
+            this.ClientSize = new System.Drawing.Size(449, 219);
+            this.Controls.Add(this.IDlabel);
+            this.Controls.Add(this.idBox);
             this.Controls.Add(this.back);
             this.Controls.Add(this.performtest);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "LabTech";
             this.Text = "LabTech";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -71,5 +100,7 @@
 
         private System.Windows.Forms.Button performtest;
         private System.Windows.Forms.Button back;
+        public System.Windows.Forms.Label IDlabel;
+        private System.Windows.Forms.TextBox idBox;
     }
 }
