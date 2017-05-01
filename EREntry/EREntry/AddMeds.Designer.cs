@@ -33,13 +33,14 @@
             this.submit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.expdate = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // name
             // 
             this.name.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name.Location = new System.Drawing.Point(17, 66);
-            this.name.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.name.Margin = new System.Windows.Forms.Padding(6);
             this.name.MaxLength = 25;
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(180, 45);
@@ -59,8 +60,8 @@
             // submit
             // 
             this.submit.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit.Location = new System.Drawing.Point(112, 131);
-            this.submit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.submit.Location = new System.Drawing.Point(113, 149);
+            this.submit.Margin = new System.Windows.Forms.Padding(6);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(183, 54);
             this.submit.TabIndex = 32;
@@ -82,25 +83,36 @@
             // expdate
             // 
             this.expdate.Font = new System.Drawing.Font("Palatino Linotype", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.expdate.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.expdate.ForeColor = System.Drawing.SystemColors.ControlText;
             this.expdate.Location = new System.Drawing.Point(211, 66);
-            this.expdate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.expdate.Margin = new System.Windows.Forms.Padding(6);
             this.expdate.Name = "expdate";
             this.expdate.Size = new System.Drawing.Size(180, 39);
             this.expdate.TabIndex = 2;
-            this.expdate.Text = "YYYY/MM/DD";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(212, 111);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(179, 32);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "YYYY/MM/DD";
             // 
             // AddMeds
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 216);
+            this.ClientSize = new System.Drawing.Size(424, 222);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.First);
             this.Controls.Add(this.expdate);
             this.Controls.Add(this.name);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "AddMeds";
             this.Text = "AddMeds";
             this.ResumeLayout(false);
@@ -115,5 +127,6 @@
         private System.Windows.Forms.Button submit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox expdate;
+        private System.Windows.Forms.Label label2;
     }
 }
