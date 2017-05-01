@@ -33,19 +33,7 @@ namespace EREntry
             {
                 if (Dujeet_DB.OpenConnection() == true)
                 {
-                    //grab current date and time
-                    string time = DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
-                    string date = DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day;
-                    //order test on patient from doctor
-                    string cmd_string = "INSERT INTO `TAKES` (`med_id`, `dosage`, `doctor_id`,'patient_id', `taken_date`, `taken_time') VALUES('" +
-                                        this.medid.Text + "','" + this.dosage.Text + "','" + this.doctorid.Text + "','" + this.patientid.Text + "','" + time + "','" + date + "');";
-
-                    //Create Command
-                    MySqlCommand cmd = new MySqlCommand(cmd_string, Dujeet_DB.connection);
-                    //Execute the command
-                    cmd.ExecuteNonQuery();
-                    //close Connection
-                    Dujeet_DB.CloseConnection();
+                    Dujeet_DB.prescribe_Meds(this.medid.Text, this.patientid.Text, this.doctorid.Text, this.dosage.Text);
                 }
                 Close();
             }
