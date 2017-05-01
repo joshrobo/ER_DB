@@ -29,7 +29,7 @@ namespace EREntry
                 if (Dujeet_DB.OpenConnection() == true)
                 {
                     //grab current date and time
-                    string time = DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
+                    string time = String.Format("{0:HH:mm:ss}", DateTime.Now);
                     string date = DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day;
 
                     //if id availble go ahead and insert patient into DB

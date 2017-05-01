@@ -185,13 +185,6 @@ namespace EREntry
         }
         public void diagnose(string patientid, string diagnosis, string symptoms)
         {
-            //grab current date and time
-            //string time = DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
-            string date = DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day;
-            //Console.WriteLine(date);
-            string time = String.Format("{0:HH:mm:ss}", DateTime.Now);
-            //Console.WriteLine(time);
-
             //update record
             //create a tranaction
             MySqlTransaction tr = null;
@@ -251,6 +244,17 @@ namespace EREntry
                 {
                     CloseConnection();
                 }
+            }
+        }
+        public void view_open_lab_tests()
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT `lab_id`, `test_name`, `patient_id` FROM LAB_TEST WHERE `labtech_id` IS NULL";
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read()) //output open tests
+            {
+                Console.WriteLine(reader.GetInt32(0) + ": " + reader.GetString(1) + " on " + reader.GetString(2));
             }
         }
     }

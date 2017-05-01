@@ -32,13 +32,14 @@
             this.back = new System.Windows.Forms.Button();
             this.IDlabel = new System.Windows.Forms.Label();
             this.idBox = new System.Windows.Forms.TextBox();
+            this.viewtest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // performtest
             // 
             this.performtest.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.performtest.Location = new System.Drawing.Point(25, 86);
-            this.performtest.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.performtest.Location = new System.Drawing.Point(230, 94);
+            this.performtest.Margin = new System.Windows.Forms.Padding(6);
             this.performtest.Name = "performtest";
             this.performtest.Size = new System.Drawing.Size(194, 100);
             this.performtest.TabIndex = 9;
@@ -49,8 +50,8 @@
             // back
             // 
             this.back.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.back.Location = new System.Drawing.Point(230, 86);
-            this.back.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.back.Location = new System.Drawing.Point(132, 206);
+            this.back.Margin = new System.Windows.Forms.Padding(6);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(194, 100);
             this.back.TabIndex = 9;
@@ -79,16 +80,29 @@
             this.idBox.Size = new System.Drawing.Size(194, 45);
             this.idBox.TabIndex = 19;
             // 
+            // viewtest
+            // 
+            this.viewtest.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewtest.Location = new System.Drawing.Point(24, 94);
+            this.viewtest.Margin = new System.Windows.Forms.Padding(6);
+            this.viewtest.Name = "viewtest";
+            this.viewtest.Size = new System.Drawing.Size(194, 100);
+            this.viewtest.TabIndex = 21;
+            this.viewtest.Text = "View test";
+            this.viewtest.UseVisualStyleBackColor = true;
+            this.viewtest.Click += new System.EventHandler(this.viewtest_Click);
+            // 
             // LabTech
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 219);
+            this.ClientSize = new System.Drawing.Size(448, 321);
+            this.Controls.Add(this.viewtest);
             this.Controls.Add(this.IDlabel);
             this.Controls.Add(this.idBox);
             this.Controls.Add(this.back);
             this.Controls.Add(this.performtest);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "LabTech";
             this.Text = "LabTech";
             this.ResumeLayout(false);
@@ -101,6 +115,7 @@
         private System.Windows.Forms.Button performtest;
         private System.Windows.Forms.Button back;
         public System.Windows.Forms.Label IDlabel;
-        private System.Windows.Forms.TextBox idBox;
+        public System.Windows.Forms.TextBox idBox;
+        private System.Windows.Forms.Button viewtest;
     }
 }
