@@ -257,5 +257,178 @@ namespace EREntry
                 Console.WriteLine(reader.GetInt32(0) + ": " + reader.GetString(1) + " on " + reader.GetString(2));
             }
         }
+        public void check_in(string patientid)
+        {
+            //update record
+            //create a tranaction
+            MySqlTransaction tr = null;
+            try
+            {
+                //get current date and time 
+                string date = DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day;
+                //Console.WriteLine(date);
+                string time = String.Format("{0:HH:mm:ss}", DateTime.Now);
+                //Console.WriteLine(time);
+                tr = connection.BeginTransaction();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+
+                //check to see if there is a room available
+                string room_num_avail = "";
+                string room_num_cmd = "SELECT room_num FROM ROOM WHERE (`max_occ`-`occupied`) > 0 LIMIT 1";
+
+                cmd.CommandText = room_num_cmd;
+                room_num_avail = cmd.ExecuteScalar().ToString();
+
+                //if so increase room count, assign patient to room and create a new record
+                cmd.CommandText = "UPDATE `ROOM` SET `occupied` = `occupied` + 1 WHERE room_num = '" + room_num_avail + "';";
+                cmd.ExecuteNonQuery();
+
+                //Update satys in table
+                cmd.CommandText = "INSERT INTO `STAYS_IN` (`room_num`, `patient_id`, `c_in_time`, `c_in_date`)"+
+                    "VALUES('" + room_num_avail + "','" + patientid + "','" + time + "','" + time +  "');";
+                cmd.ExecuteNonQuery();
+
+                //create new record
+                cmd.CommandText = "INSERT INTO `RECORDS` (`records_id`, `patient_ID`,  `r_date`, `r_time`)" +
+                    "VALUES (NULL, '" + patientid + "','" + date + "','" + time + "');";
+                cmd.ExecuteNonQuery();
+
+                //get patient name
+                string patient_name_cmd = "Select l_name FROM PATIENT WHERE `patient_id` = '" +
+                                        patientid + "';";
+                MySqlCommand cmd4 = new MySqlCommand(patient_name_cmd, connection);
+                //Execute the command
+                string patient_name = cmd4.ExecuteScalar().ToString();
+
+                tr.Commit();
+                Console.WriteLine("Assigned " + patient_name + " to room " + room_num_avail);
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    Console.WriteLine("Error: {0}", ex1.ToString());
+                }
+                Console.WriteLine("Error: {0}", ex.ToString());
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    CloseConnection();
+                }
+            }
+        }
+        public void check_out(string patientid)
+        {
+            //update record
+            //create a tranaction
+            MySqlTransaction tr = null;
+            try
+            {
+                //get current date and time 
+                string date = DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day;
+                //Console.WriteLine(date);
+                string time = String.Format("{0:HH:mm:ss}", DateTime.Now);
+                //Console.WriteLine(time);
+                tr = connection.BeginTransaction();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+
+                string patient_stays_in = "";
+                //find out where patient is staying 
+                string room_num_cmd = "SELECT `room_num` FROM STAYS_IN WHERE `patient_id` = '" + patientid + "' ORDER BY `c_in_date` DESC LIMIT 1;";
+                cmd.CommandText = room_num_cmd;
+                patient_stays_in = cmd.ExecuteScalar().ToString();
+
+                //decrease room count that patient is staying in
+                cmd.CommandText = "UPDATE `ROOM` SET `occupied` = (`occupied` - 1) WHERE `room_num` = '" + patient_stays_in + "';";
+                cmd.ExecuteNonQuery();
+
+                //update check out time in stays in
+                cmd.CommandText = "UPDATE `STAYS_IN` SET `c_out_time` = '" + time + "', `c_out_date` = '" + date +"' WHERE `patient_id` = '" 
+                                  + patientid+ "' AND `room_num` = '" + patient_stays_in + "' ORDER BY `c_in_date` DESC LIMIT 1;";
+                cmd.ExecuteNonQuery();
+
+                //remove any nurses helping patient
+                cmd.CommandText = "DELETE FROM HELPS WHERE `patient_id` = '" + patientid + "';";
+                cmd.ExecuteNonQuery();
+
+                //remove any doctors helping patient
+                cmd.CommandText = "DELETE FROM HELPS WHERE `patient_id` = '" + patientid + "';";
+                cmd.ExecuteNonQuery();
+
+                //get patient name
+                string patient_name_cmd = "Select l_name FROM PATIENT WHERE `patient_id` = '" +
+                                        patientid + "';";
+                MySqlCommand cmd4 = new MySqlCommand(patient_name_cmd, connection);
+                //Execute the command
+                string patient_name = cmd4.ExecuteScalar().ToString();
+
+                tr.Commit();
+                Console.WriteLine("Checked out " + patient_name);
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    Console.WriteLine("Error: {0}", ex1.ToString());
+                }
+                Console.WriteLine("Error: {0}", ex.ToString());
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    CloseConnection();
+                }
+            }
+        }
+        public void find(string patientid)
+        {
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+
+            string patient_stays_in = "";
+            //find out where patient is staying 
+            string room_num_cmd = "SELECT `room_num` FROM STAYS_IN WHERE `patient_id` = '" + patientid + "' ORDER BY `c_in_date` DESC LIMIT 1;";
+            cmd.CommandText = room_num_cmd;
+            patient_stays_in = cmd.ExecuteScalar().ToString();
+
+            Console.WriteLine("Patient is in room " + patient_stays_in);
+        }
+
+        public void get_records(string patientid)
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT `l_name`, `f_name`, `symptoms`, `diagnosis`, `r_date`, `r_time` FROM PATIENT P, RECORDS R WHERE P.patient_id = R.patient_id AND P.patient_id = '" + patientid + "';";
+            MySqlDataReader reader = cmd.ExecuteReader();
+            int col = 0;
+            string sym = "";
+            string diag = "";
+            while (reader.Read()) //output open tests
+            {
+                if (!reader.IsDBNull(2))
+                    diag = reader.GetString(2);
+                else
+                    diag = "";
+                if (!reader.IsDBNull(3))
+                    diag = reader.GetString(3);
+                else
+                    diag = "";
+                Console.WriteLine(reader.GetString(0) + reader.GetString(1) + ":\nDiagnosis: " + diag + "\nSymptoms: " + sym +
+                                                                    "\nDate: " + reader.GetString(4) + "\nTime: " + reader.GetString(5) + "\n");
+                col++;
+            }
+        }
     }
 }

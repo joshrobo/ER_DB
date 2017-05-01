@@ -36,9 +36,10 @@
             // submit
             // 
             this.submit.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit.Location = new System.Drawing.Point(16, 69);
+            this.submit.Location = new System.Drawing.Point(29, 127);
+            this.submit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(100, 29);
+            this.submit.Size = new System.Drawing.Size(183, 54);
             this.submit.TabIndex = 39;
             this.submit.Text = "Submit";
             this.submit.UseVisualStyleBackColor = true;
@@ -47,29 +48,33 @@
             // patientid
             // 
             this.patientid.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientid.Location = new System.Drawing.Point(16, 34);
+            this.patientid.Location = new System.Drawing.Point(29, 63);
+            this.patientid.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.patientid.MaxLength = 8;
             this.patientid.Name = "patientid";
-            this.patientid.Size = new System.Drawing.Size(100, 29);
+            this.patientid.Size = new System.Drawing.Size(180, 45);
             this.patientid.TabIndex = 38;
             // 
             // First
             // 
             this.First.AutoSize = true;
             this.First.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.First.Location = new System.Drawing.Point(12, 9);
+            this.First.Location = new System.Drawing.Point(22, 17);
+            this.First.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.First.Name = "First";
-            this.First.Size = new System.Drawing.Size(78, 22);
+            this.First.Size = new System.Drawing.Size(140, 37);
             this.First.TabIndex = 37;
             this.First.Text = "Patient ID";
             // 
             // CheckInPatient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(132, 118);
+            this.ClientSize = new System.Drawing.Size(381, 218);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.patientid);
             this.Controls.Add(this.First);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "CheckInPatient";
             this.Text = "CheckInPatient";
             this.ResumeLayout(false);
