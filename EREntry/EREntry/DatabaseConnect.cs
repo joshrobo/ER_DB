@@ -183,5 +183,75 @@ namespace EREntry
                 }
             }
         }
+        public void diagnose(string patientid, string diagnosis, string symptoms)
+        {
+            //grab current date and time
+            //string time = DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second;
+            string date = DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day;
+            //Console.WriteLine(date);
+            string time = String.Format("{0:HH:mm:ss}", DateTime.Now);
+            //Console.WriteLine(time);
+
+            //update record
+            //create a tranaction
+            MySqlTransaction tr = null;
+            try
+            {
+                tr = connection.BeginTransaction();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+
+                //retrive record_id for patient
+                cmd.CommandText = "SELECT MAX(records_id) FROM RECORDS WHERE patient_ID ='" + patientid + "';";
+                int records_id = Convert.ToInt32(cmd.ExecuteScalar());
+                //Console.WriteLine(records_id);
+
+                //Create command to update symptoms only in records
+                if (diagnosis == "" && symptoms != "") {
+                    string take_string = "UPDATE `RECORDS` SET `symptoms` = '" + symptoms + 
+                                         "' WHERE patient_id ='" + patientid + "';";
+                    cmd.CommandText = take_string;
+                    cmd.ExecuteNonQuery();
+                }
+
+                //Create command to update dianosis only in records
+                if (diagnosis != "" && symptoms == "")
+                {
+                    string take_string = "UPDATE `RECORDS` SET `diagnosis` = '" + diagnosis +
+                                         "' WHERE patient_id ='" + patientid + "';";
+                    cmd.CommandText = take_string;
+                    cmd.ExecuteNonQuery();
+                }
+
+                //Create command to update both in records
+                if (diagnosis != "" && symptoms != "")
+                {
+                    string take_string = "UPDATE `RECORDS` SET `symptoms` = '" + symptoms + "',`diagnosis` = '" + diagnosis +
+                                         "' WHERE patient_id ='" + patientid + "';";
+                    cmd.CommandText = take_string;
+                    cmd.ExecuteNonQuery();
+                }
+                tr.Commit();
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    Console.WriteLine("Error: {0}", ex1.ToString());
+                }
+                Console.WriteLine("Error: {0}", ex.ToString());
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    CloseConnection();
+                }
+            }
+        }
     }
 }
