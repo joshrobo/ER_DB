@@ -273,6 +273,7 @@ namespace EREntry
             }
             Output output = new EREntry.Output();
             output.label1.Text = OutputText;
+            output.Show();
         }
         public void check_in(string patientid)
         {
@@ -292,18 +293,19 @@ namespace EREntry
 
                 //check to see if there is a room available
                 string room_num_avail = "";
-                string room_num_cmd = "SELECT room_num FROM ROOM WHERE (`max_occ`-`occupied`) > 0 LIMIT 1";
-
+                string room_num_cmd = "SELECT room_num FROM ROOM WHERE `max_occ` > `occupied` LIMIT 1";
+                
                 cmd.CommandText = room_num_cmd;
                 room_num_avail = cmd.ExecuteScalar().ToString();
+                Console.WriteLine(room_num_avail);
 
                 //if so increase room count, assign patient to room and create a new record
                 cmd.CommandText = "UPDATE `ROOM` SET `occupied` = `occupied` + 1 WHERE room_num = '" + room_num_avail + "';";
                 cmd.ExecuteNonQuery();
 
-                //Update satys in table
-                cmd.CommandText = "INSERT INTO `STAYS_IN` (`room_num`, `patient_id`, `c_in_time`, `c_in_date`)"+
-                    "VALUES('" + room_num_avail + "','" + patientid + "','" + time + "','" + date +  "');";
+                //Update stays in table
+                cmd.CommandText = "INSERT INTO `STAYS_IN` (`room_num`, `patient_id`, `c_in_time`, `c_in_date`, `c_out_time`, `c_out_date`)"+
+                    " VALUES ('" + room_num_avail + "','" + patientid + "','" + time + "','" + date +  "', NULL, NULL);";
                 cmd.ExecuteNonQuery();
 
                 //create new record
@@ -319,9 +321,12 @@ namespace EREntry
                 string patient_name = cmd4.ExecuteScalar().ToString();
 
                 tr.Commit();
-                string OutputText = "Assigned " + patient_name + " to room " + room_num_avail;
-                Output output = new EREntry.Output();
+                string OutputText = "Checked in " + patient_name + "\n";
+                OutputText +=  "Assigned to room " + room_num_avail + "\n";
+                OutputText += "Created a new record";
+                Output output = new Output();
                 output.label1.Text = OutputText;
+                output.Show();
                 Console.WriteLine(OutputText);
             }
             catch (MySqlException ex)
@@ -393,8 +398,6 @@ namespace EREntry
                 tr.Commit();
                 
                 string OutputText = "Checked out " + patient_name;
-                Output output = new EREntry.Output();
-                output.label1.Text = OutputText;
                 Console.WriteLine(OutputText);
 
                 // ****************************************
@@ -440,6 +443,7 @@ namespace EREntry
             Output output = new EREntry.Output();
             output.label1.Text = OutputText;
             Console.WriteLine(OutputText);
+            output.Show();
         }
 
         public void get_records(string patientid)
@@ -454,25 +458,21 @@ namespace EREntry
             while (reader.Read()) //output open tests
             {
                 if (!reader.IsDBNull(2))
-                    diag = reader.GetString(2);
+                    sym = reader.GetString(2);
                 else
-                    diag = "";
+                    sym = "";
                 if (!reader.IsDBNull(3))
                     diag = reader.GetString(3);
                 else
                     diag = "";
 
-                string s = reader.GetString(0) + reader.GetString(1) + ":\nDiagnosis: " + diag + "\nSymptoms: " + sym +
+                string s = reader.GetString(0) + ", " + reader.GetString(1) + "\nSymptoms: " + sym + ":\nDiagnosis: " + diag +
                                                   "\nDate: " + reader.GetString(4) + "\nTime: " + reader.GetString(5) + "\n";
                 Console.WriteLine(s);
                 OutputText += s;
                 col++;
             }
            
-            Output output = new EREntry.Output();
-            output.label1.Text = OutputText;
-            Console.WriteLine(OutputText);
-
             // ****************************************
             // sends the output to a form
             Output toForm = new Output();
