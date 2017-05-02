@@ -131,8 +131,8 @@ namespace EREntry
                 cmd.Connection = connection;
 
                 //Create command to insert into TAKES table
-                string take_string = "INSERT INTO `TAKES` (`take_id`, `dosage`, `prescibed_by`,`patient_id`, `t_date`, `t_time`) VALUES('" +
-                                    medid + "','" + dosage + "','" + doctorid + "','" + patientid + "','" + date + "','" + time + "');";
+                string take_string = "INSERT INTO `TAKES` (`dosage`, `prescibed_by`,`patient_id`, `t_date`, `t_time`) VALUES('" +
+                                    dosage + "','" + doctorid + "','" + patientid + "','" + date + "','" + time + "');";
                 cmd.CommandText = take_string;
                 cmd.ExecuteNonQuery();
 
@@ -164,7 +164,11 @@ namespace EREntry
                 cmd.CommandText = "SELECT name FROM MEDICATION WHERE med_ID ='" + medid + "';";
                 string med_name = cmd.ExecuteScalar().ToString();
 
-                Console.WriteLine("Dr." + doctor_name + " precribed " + dosage + "mg of " + med_name + " to " + patient_name);
+                string OutputText = "Dr." + doctor_name + " prescribed " + dosage + "mg of " + med_name + " to patient" + patient_name;
+                Console.WriteLine(OutputText);
+                Output output = new EREntry.Output();
+                output.label1.Text = OutputText;
+                output.Show();
                 tr.Commit();
             } catch (MySqlException ex)
             { try

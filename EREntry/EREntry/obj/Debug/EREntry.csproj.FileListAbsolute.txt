@@ -86,3 +86,4 @@ C:\Users\Josh Robinson\Desktop\ER_DB\EREntry\EREntry\obj\Debug\EREntry.PerformTe
 C:\Users\Josh Robinson\Desktop\ER_DB\EREntry\EREntry\obj\Debug\EREntry.PrescribeMeds.resources
 C:\Users\Josh Robinson\Desktop\ER_DB\EREntry\EREntry\obj\Debug\EREntry.Properties.Resources.resources
 C:\Users\Josh Robinson\Desktop\ER_DB\EREntry\EREntry\obj\Debug\EREntry.csproj.GenerateResource.Cache
+C:\Users\Josh Robinson\Desktop\ER_DB\EREntry\EREntry\obj\Debug\EREntry.Output.resources
