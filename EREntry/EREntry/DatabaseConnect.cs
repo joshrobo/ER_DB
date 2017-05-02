@@ -25,13 +25,13 @@ namespace EREntry
         //Initialize database creds
         private void Initialize()
         {
-            //server = "132.160.49.90";
-            server = "localhost";
+            server = "132.160.49.90";
+            //server = "localhost";
             port = "3306";
             database = "Dujeet_DB";
             uid = "root";
-            //password = "Bahaghari20$";
-            password = "password";
+            password = "Bahaghari20$";
+            //password = "password";
             string connectionString;
             connectionString = "Server=" + server + ";" + "Port=" + port + ";" + "Database=" +
             database + ";" + "Uid=" + uid + ";" + "Password=" + password + ";";
