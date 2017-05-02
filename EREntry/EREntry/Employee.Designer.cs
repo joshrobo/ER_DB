@@ -43,7 +43,7 @@
             // 
             this.getrecords.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.getrecords.Location = new System.Drawing.Point(429, 133);
-            this.getrecords.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.getrecords.Margin = new System.Windows.Forms.Padding(6);
             this.getrecords.Name = "getrecords";
             this.getrecords.Size = new System.Drawing.Size(194, 100);
             this.getrecords.TabIndex = 8;
@@ -55,7 +55,7 @@
             // 
             this.assignnurse.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.assignnurse.Location = new System.Drawing.Point(226, 22);
-            this.assignnurse.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.assignnurse.Margin = new System.Windows.Forms.Padding(6);
             this.assignnurse.Name = "assignnurse";
             this.assignnurse.Size = new System.Drawing.Size(194, 100);
             this.assignnurse.TabIndex = 9;
@@ -67,7 +67,7 @@
             // 
             this.assigndoctor.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.assigndoctor.Location = new System.Drawing.Point(431, 22);
-            this.assigndoctor.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.assigndoctor.Margin = new System.Windows.Forms.Padding(6);
             this.assigndoctor.Name = "assigndoctor";
             this.assigndoctor.Size = new System.Drawing.Size(194, 100);
             this.assigndoctor.TabIndex = 10;
@@ -79,7 +79,7 @@
             // 
             this.checkinpatient.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkinpatient.Location = new System.Drawing.Point(20, 133);
-            this.checkinpatient.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.checkinpatient.Margin = new System.Windows.Forms.Padding(6);
             this.checkinpatient.Name = "checkinpatient";
             this.checkinpatient.Size = new System.Drawing.Size(194, 100);
             this.checkinpatient.TabIndex = 11;
@@ -91,7 +91,7 @@
             // 
             this.findpatient.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.findpatient.Location = new System.Drawing.Point(22, 244);
-            this.findpatient.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.findpatient.Margin = new System.Windows.Forms.Padding(6);
             this.findpatient.Name = "findpatient";
             this.findpatient.Size = new System.Drawing.Size(194, 100);
             this.findpatient.TabIndex = 12;
@@ -103,7 +103,7 @@
             // 
             this.addmeds.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addmeds.Location = new System.Drawing.Point(20, 22);
-            this.addmeds.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.addmeds.Margin = new System.Windows.Forms.Padding(6);
             this.addmeds.Name = "addmeds";
             this.addmeds.Size = new System.Drawing.Size(194, 100);
             this.addmeds.TabIndex = 12;
@@ -115,7 +115,7 @@
             // 
             this.back.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.back.Location = new System.Drawing.Point(429, 244);
-            this.back.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.back.Margin = new System.Windows.Forms.Padding(6);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(194, 100);
             this.back.TabIndex = 12;
@@ -127,7 +127,7 @@
             // 
             this.checkoutpatient.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkoutpatient.Location = new System.Drawing.Point(226, 133);
-            this.checkoutpatient.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.checkoutpatient.Margin = new System.Windows.Forms.Padding(6);
             this.checkoutpatient.Name = "checkoutpatient";
             this.checkoutpatient.Size = new System.Drawing.Size(194, 100);
             this.checkoutpatient.TabIndex = 12;
@@ -137,9 +137,9 @@
             // 
             // createemployee
             // 
-            this.createemployee.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createemployee.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createemployee.Location = new System.Drawing.Point(227, 244);
-            this.createemployee.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.createemployee.Margin = new System.Windows.Forms.Padding(6);
             this.createemployee.Name = "createemployee";
             this.createemployee.Size = new System.Drawing.Size(194, 100);
             this.createemployee.TabIndex = 13;
@@ -161,7 +161,7 @@
             this.Controls.Add(this.assigndoctor);
             this.Controls.Add(this.assignnurse);
             this.Controls.Add(this.getrecords);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Employee";
             this.Text = "Employee";
             this.Load += new System.EventHandler(this.Employee_Load);

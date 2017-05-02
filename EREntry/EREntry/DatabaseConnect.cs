@@ -286,7 +286,7 @@ namespace EREntry
 
                 //Update satys in table
                 cmd.CommandText = "INSERT INTO `STAYS_IN` (`room_num`, `patient_id`, `c_in_time`, `c_in_date`)"+
-                    "VALUES('" + room_num_avail + "','" + patientid + "','" + time + "','" + time +  "');";
+                    "VALUES('" + room_num_avail + "','" + patientid + "','" + time + "','" + date +  "');";
                 cmd.ExecuteNonQuery();
 
                 //create new record
