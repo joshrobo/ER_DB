@@ -197,7 +197,7 @@ namespace EREntry
                 tr = connection.BeginTransaction();
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
-
+                string OutputText = "";
                 //retrive record_id for patient
                 cmd.CommandText = "SELECT MAX(records_id) FROM RECORDS WHERE patient_ID ='" + patientid + "';";
                 int records_id = Convert.ToInt32(cmd.ExecuteScalar());
@@ -209,6 +209,7 @@ namespace EREntry
                                          "' WHERE patient_id ='" + patientid + "';";
                     cmd.CommandText = take_string;
                     cmd.ExecuteNonQuery();
+                    OutputText = "Updated patient's symptoms.";
                 }
 
                 //Create command to update dianosis only in records
@@ -218,6 +219,7 @@ namespace EREntry
                                          "' WHERE patient_id ='" + patientid + "';";
                     cmd.CommandText = take_string;
                     cmd.ExecuteNonQuery();
+                    OutputText = "Updated patient's diagnosis.";
                 }
 
                 //Create command to update both in records
@@ -227,8 +229,14 @@ namespace EREntry
                                          "' WHERE patient_id ='" + patientid + "';";
                     cmd.CommandText = take_string;
                     cmd.ExecuteNonQuery();
+                    OutputText = "Updated patient's symptoms and diagnosis.";
                 }
                 tr.Commit();
+                
+                Console.WriteLine(OutputText);
+                Output output = new EREntry.Output();
+                output.label1.Text = OutputText;
+                output.Show();
             }
             catch (MySqlException ex)
             {
@@ -252,14 +260,19 @@ namespace EREntry
         }
         public void view_open_lab_tests()
         {
+            string OutputText = "";
             MySqlCommand cmd = connection.CreateCommand();
             cmd.CommandText = "SELECT `lab_id`, `test_name`, `patient_id` FROM LAB_TEST WHERE `labtech_id` IS NULL";
             MySqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read()) //output open tests
             {
-                Console.WriteLine(reader.GetInt32(0) + ": " + reader.GetString(1) + " on " + reader.GetString(2));
+                string s = reader.GetInt32(0) + ": " + reader.GetString(1) + " on " + reader.GetString(2) + "\n";
+                Console.WriteLine(s);
+                OutputText += s;
             }
+            Output output = new EREntry.Output();
+            output.label1.Text = OutputText;
         }
         public void check_in(string patientid)
         {
@@ -306,7 +319,10 @@ namespace EREntry
                 string patient_name = cmd4.ExecuteScalar().ToString();
 
                 tr.Commit();
-                Console.WriteLine("Assigned " + patient_name + " to room " + room_num_avail);
+                string OutputText = "Assigned " + patient_name + " to room " + room_num_avail;
+                Output output = new EREntry.Output();
+                output.label1.Text = OutputText;
+                Console.WriteLine(OutputText);
             }
             catch (MySqlException ex)
             {
@@ -375,7 +391,11 @@ namespace EREntry
                 string patient_name = cmd4.ExecuteScalar().ToString();
 
                 tr.Commit();
-                Console.WriteLine("Checked out " + patient_name);
+                
+                string OutputText = "Checked out " + patient_name;
+                Output output = new EREntry.Output();
+                output.label1.Text = OutputText;
+                Console.WriteLine(OutputText);
             }
             catch (MySqlException ex)
             {
@@ -408,11 +428,15 @@ namespace EREntry
             cmd.CommandText = room_num_cmd;
             patient_stays_in = cmd.ExecuteScalar().ToString();
 
-            Console.WriteLine("Patient is in room " + patient_stays_in);
+            string OutputText = "Patient is in room " + patient_stays_in;
+            Output output = new EREntry.Output();
+            output.label1.Text = OutputText;
+            Console.WriteLine(OutputText);
         }
 
         public void get_records(string patientid)
         {
+            string OutputText = "";
             MySqlCommand cmd = connection.CreateCommand();
             cmd.CommandText = "SELECT `l_name`, `f_name`, `symptoms`, `diagnosis`, `r_date`, `r_time` FROM PATIENT P, RECORDS R WHERE P.patient_id = R.patient_id AND P.patient_id = '" + patientid + "';";
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -429,10 +453,17 @@ namespace EREntry
                     diag = reader.GetString(3);
                 else
                     diag = "";
-                Console.WriteLine(reader.GetString(0) + reader.GetString(1) + ":\nDiagnosis: " + diag + "\nSymptoms: " + sym +
-                                                                    "\nDate: " + reader.GetString(4) + "\nTime: " + reader.GetString(5) + "\n");
+
+                string s = reader.GetString(0) + reader.GetString(1) + ":\nDiagnosis: " + diag + "\nSymptoms: " + sym +
+                                                  "\nDate: " + reader.GetString(4) + "\nTime: " + reader.GetString(5) + "\n";
+                Console.WriteLine(s);
+                OutputText += s;
                 col++;
             }
+           
+            Output output = new EREntry.Output();
+            output.label1.Text = OutputText;
+            Console.WriteLine(OutputText);
         }
     }
 }
