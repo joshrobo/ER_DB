@@ -396,6 +396,14 @@ namespace EREntry
                 Output output = new EREntry.Output();
                 output.label1.Text = OutputText;
                 Console.WriteLine(OutputText);
+
+                // ****************************************
+                // sends the output to a form
+                Output toForm = new Output();
+                toForm.label1.Text = OutputText;
+                toForm.Text = "Check Out Patient";
+                toForm.Show();
+                // ****************************************
             }
             catch (MySqlException ex)
             {
@@ -464,6 +472,14 @@ namespace EREntry
             Output output = new EREntry.Output();
             output.label1.Text = OutputText;
             Console.WriteLine(OutputText);
+
+            // ****************************************
+            // sends the output to a form
+            Output toForm = new Output();
+            toForm.label1.Text = OutputText;
+            toForm.Text = "Patient's Record";
+            toForm.Show();
+            // ****************************************
         }
     }
 }
